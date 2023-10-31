@@ -1,0 +1,29 @@
+import pytholog as pl
+kb1 = pl.KnowledgeBase("flavor")
+kb1(["likes(divyanshu, samosa)",
+        "likes(riya, pasta)",
+        "likes(tushar, cookie)",
+        "likes(ashish, samosa)",
+        "likes(arpita, lemonade)",
+        "food_type(samosa, snack)",
+        "food_type(lemonade, juice)",
+        "food_type(cookie, biscuit)",
+        "food_type(pasta, noodles)",
+        "food_type(lemonade, drink)",
+        "flavor(sweet, juice)",
+        "flavor(savory, snack)",
+        "flavor(savory, noodles)",
+        "flavor(sweet, cookie)",
+        "food_flavor(X, Y) :- food_type(X, Z), flavor(Y, Z)",
+        "dish_to_like(X, Y) :- likes(X, L), food_type(L, T), flavor(F, T), food_flavor(Y, F), neq(L, Y)"])
+kb1.query(pl.Expr("food_type(X,Y)"))
+// querry 
+kb1.query(pl.Expr("food_type(X,Y)"))
+
+//output
+
+[{'X': 'cookie', 'Y': 'biscuit'},
+ {'X': 'lemonade', 'Y': 'juice'},
+ {'X': 'lemonade', 'Y': 'drink'},
+ {'X': 'pasta', 'Y': 'noodles'},
+ {'X': 'samosa', 'Y': 'snack'}]
