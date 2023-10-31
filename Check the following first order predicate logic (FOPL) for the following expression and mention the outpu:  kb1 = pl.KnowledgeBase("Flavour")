@@ -12,7 +12,7 @@ kb1(["likes(divyanshu, samosa)",
         "food_type(lemonade, drink)",
         "flavor(sweet, juice)",
         "flavor(savory, snack)",
-        "flavor(savory, noodles)",
+        "flavor(savory, noodles)",     
         "flavor(sweet, cookie)",
         "food_flavor(X, Y) :- food_type(X, Z), flavor(Y, Z)",
         "dish_to_like(X, Y) :- likes(X, L), food_type(L, T), flavor(F, T), food_flavor(Y, F), neq(L, Y)"])
